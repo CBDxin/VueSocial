@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_844962_2pas8sqxkve.css">
+    <title>Social</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="http://47.107.66.252:3001/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      const socket = io.connect('http://47.107.66.252:3001');
+      //解决用户手动刷新浏览器后，原来的socketid失效的问题
+      /*const loginStatus= JSON.parse(localStorage.getItem("loginStatus") || '{}');
+      loginStatus.isLogin && socket.emit('update',loginStatus.userId);*/
+    </script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
