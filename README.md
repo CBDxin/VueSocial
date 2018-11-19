@@ -1,11 +1,10 @@
 # VueSocial
-something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）
-# VueSocial
-something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）
-前后端分离的vue+express+socket.io练手项目 
+something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 
+
 ---
 ## 预览
 在线demo [VueSocial](http://47.107.66.252:3001/public/dist/#/home)（pc端按了f12后有个小问题，刷新一下就好）
+
 ---
 ## 技术栈
 1. vue：前端框架
@@ -16,6 +15,7 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）
 6. Webpack：模块打包工具，前端项目构建工具
 7. mongoose：mongodb的框架
 8. better-scroll:一款重点解决移动端(已支持 PC)各种滚动场景需求的插件
+
 ---
 ## 已实现功能
 1. 登录注册
@@ -27,21 +27,35 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）
 7. 实时聊天：socket.io
 8. 首页下拉刷新：better-scroll
 9. 搜索：搜索用户与动态、使用localStorage保存历史搜索记录
+
 ---
 ## 待改进（要考试了，这个慢慢来）
 1. 同一个用户多个设备同时登录时socket.io会出现问题，所以要限制登录？还是修改数据库结构？
 2. 移动端的坑：有的浏览器会卡顿、Safari监听不到输入框按下搜索键（内心是崩溃的）
+3. resize时better-scroll的小bug
+
 ---
 ## 安装
-  + 分别两个文件目录下安装依赖，在server文件夹下node app.js,在blogPhone下npm run dev，然后打开localhost：8080就可以了
+分别两个文件目录下安装依赖npm install，在server文件夹下node app.js,在blogPhone下npm run dev，然后打开localhost：8081就可以了
+  
 ---
 ## 项目部分图片
 1. 首页
+![index](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231148.jpg)
 2. 登录
+![login](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231159.jpg)
 3. 消息
+![new](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231142.jpg)
 4. 聊天
+![chat](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231154.jpg)
 5. 个人信息
+![profile](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231120.jpg)
 6. 个人主页
+![index](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231131.jpg)
 7. 分享动态
+![Image text](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231054.jpg)
 8. 更改头像
+![头像](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231115.jpg)
 9. 搜索页面
+![search](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231126.jpg)
+![searchBar](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231137.jpg)
