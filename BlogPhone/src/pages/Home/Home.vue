@@ -73,7 +73,8 @@
     computed: {
       ...mapState([
         'userInfo',
-        'cunread'
+        'cunread',
+        'isReset'
       ])
     },
     mounted() {
@@ -94,6 +95,12 @@
       this.getAllData();
     },
     activated() {
+      if (this.isResize){
+          this.initImg();
+          this.$refs.scroll.refresh();
+          this.reset_resize();
+          this.getPyqLists();
+        }
       this.$nextTick(() => {
         if (this._getList) {
           if (this.goTop) {
@@ -152,7 +159,8 @@
         'set_userInfo',
         'set_cmessage',
         'set_cunread',
-        'set_chatList'
+        'set_chatList',
+        'reset_reszie'
       ]),
       initImg() {
         let items = this.$refs.items;
