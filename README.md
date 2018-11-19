@@ -73,6 +73,7 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
   
 ### 更改头像
   <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231115.jpg"/>
+  
 ### 搜索页面
   <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231126.jpg"/>
   <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231137.jpg"/>
@@ -99,11 +100,11 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
     </script>
 ```
 这部分的数据库写得有点乱（很乱。。。），但是socket.io的使用其实很方便，无非就是on和emit
-`socket.emit()`：向建立该连接的客户端发送消息
-`socket.on()`：监听客户端发送信息
-`io.to(socketid).emit()`：向指定客户端发送消息
-`socket.broadcast.emit()`：向除去建立该连接的客户端的所有客户端广播
-`io.sockets.emit()`：向所有客户端广播
++ `socket.emit()`：向建立该连接的客户端发送消息
++ `socket.on()`：监听客户端发送信息
++ `io.to(socketid).emit()`：向指定客户端发送消息
++ `socket.broadcast.emit()`：向除去建立该连接的客户端的所有客户端广播
++ `io.sockets.emit()`：向所有客户端广播
 
 ### vue
 总结一些项目遇到的难点
