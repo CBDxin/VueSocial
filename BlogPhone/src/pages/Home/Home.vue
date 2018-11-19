@@ -1,7 +1,7 @@
 <template>
   <div id="msite">
     <myheader :title="'首页'">
-      <i class="iconfont icon-sousuo left" slot="left"></i>
+      <i @click="$router.push('/searchbar')" class="iconfont icon-sousuo left" slot="left"></i>
       <router-link v-if="userInfo.username" to="/profile" tag="span" class="right" slot="right">我的</router-link>
       <router-link v-else to="/login" tag="span" class="right" slot="right">登录</router-link>
     </myheader>
