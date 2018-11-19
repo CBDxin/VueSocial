@@ -4,7 +4,8 @@ const state = {
   cmessage:{},
   cunread:0,
   unread:0,
-  chatList:[]
+  chatList:[],
+  isResize:false
 };
 
 export default state
