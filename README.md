@@ -42,6 +42,7 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
 1. 同一个用户多个设备同时登录时socket.io会出现问题，所以要限制登录？还是修改数据库结构？
 2. 移动端的坑：有的浏览器会卡顿、Safari监听不到输入框按下搜索键（内心是崩溃的）
 3. resize时better-scroll的小bug
+4.没做分页请求，都是一次性请求全部数据
 
 ---
 ## 安装
@@ -68,3 +69,64 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
 ### 搜索页面
 ![search](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231126.jpg)
 ![searchBar](https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231137.jpg)
+
+---
+## 分析总结
+### socket.io
+**服务端:**
+```
+  let serve = app.listen(3001);
+  const io = socketio(serve);
+  io.on('connection', socket => {
+    socket.on('login', (username) => {
+                console.log(username+'上线了！');
+            });
+  }
+```
+**客户端:**
+在index中引入
+```
+    <script src="http://47.107.66.252:3001/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      const socket = io.connect('http://47.107.66.252:3001');
+    </script>
+```
+这部分的数据库写得有点乱（很乱。。。），但是socket.io的使用其实很方便，无非就是on和emit
+`socket.emit()`：向建立该连接的客户端发送消息
+`socket.on()`：监听客户端发送信息
+`io.to(socketid).emit()`：向指定客户端发送消息
+`socket.broadcast.emit()`：向除去建立该连接的客户端的所有客户端广播
+`io.sockets.emit()`：向所有客户端广播
+
+### vue
+总结一些项目遇到的难点
+1. ajax在生命周期函数created发起，dom操作在生命周期函数mounted中操作，如果需要dom元素完全挂起后在操作则还需要在$nextTick中操作，例如：
+```
+mounted() {
+      this.$nextTick(() => {
+        this.initImg();
+      })
+    }
+```
+2. 动态生成（例如通过v-for）的dom元素在mounted中通过ref是获取不到的，需要在生命周期函数updated中获取
+3. keepalive后的组件如果需要在跳转进入时进行操作可通过路由守卫和生命周期函数actived配合使用，如：
+```
+beforeRouteEnter(to, from, next) {
+      if (from.path == '/upload' ) {
+        next(vm => {
+          vm._getList = true
+        })
+      } else {
+        next()
+      }
+    }
+```
+```
+activated() {
+      this.$nextTick(() => {
+        if (this._getList) {
+          this.getPyqLists();
+        }
+      })
+    }
+```
