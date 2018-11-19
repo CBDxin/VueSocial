@@ -4,6 +4,12 @@ const mutations = {
   [types.SET_USERINFO](state, userInfo) {
     state.userInfo = userInfo;
   },
+  [types.SET_RESIZE](state) {
+    state.isResize = true;
+  },
+  [types.RESET_RESIZE](state) {
+    state.isResize = false;
+  },
   [types.SET_IMGDATA](state, imgdata) {
     state.imgdata = imgdata;
   },
