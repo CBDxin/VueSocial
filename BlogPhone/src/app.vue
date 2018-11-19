@@ -28,12 +28,19 @@
     created() {
       this.$router.currentRoute.path != '/' && this.$router.push('/home');
       this.updateBySocket();
+      this._set_resize();
     },
     methods: {
       ...mapMutations([
         'update_cunread',
-        'update_chatList'
+        'update_chatList',
+        'set_resize',
       ]),
+      _set_resize(){
+        window.addEventListener('resize',()=>{
+          this.set_resize();
+        })
+      },
       updateBySocket() {
         socket.removeAllListeners();
         socket.on('receiveComment', () => {
