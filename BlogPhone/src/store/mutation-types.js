@@ -17,3 +17,6 @@ export const UPDATE_CHATLIST = 'update_chatList';
 
 export const CLEAR_CHATUNREAD = 'clear_chatUnread';
 
+export const SET_RESIZE = 'set_resize';
+
+export const RESET_RESIZE = 'reset_resize';
