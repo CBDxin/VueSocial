@@ -58,6 +58,12 @@
         </div>
       </div>
     </scroll>
+    <div v-else class="pindex-top">
+      <div :style="'backgroundImage:url(' + tUserInfo.avater +' )'" class="avater"></div>
+      <div class="username">{{name}}</div>
+      <div class="signature">签名：{{tUserInfo.signature}}</div>
+      <div style="text-align: center; margin: 150px 0; font-size: 20px;font-weight: bold">他还没发送过任何动态╮(╯▽╰)╭</div>
+    </div>
   </div>
 </template>
 
