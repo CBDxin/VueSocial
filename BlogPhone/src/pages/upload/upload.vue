@@ -28,7 +28,7 @@
                     <li ref="files" class="weui-uploader__file" v-for="(image,index) in images" :key="index"
                         :style="'backgroundImage:url(' + image +' )'"><span @click="deleteimg(index)" class="x">&times;</span></li>
                   </ul>
-                  <div v-show="!this.$refs.files||this.$refs.files.length < maxCount" class="weui-uploader__input-box">
+                  <div v-show="images.length < maxCount" class="weui-uploader__input-box">
                     <input @change="change" id="uploaderInput" class="weui-uploader__input zjxfjs_file" type="file"
                            accept="image/*">
                   </div>
