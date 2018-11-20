@@ -84,21 +84,20 @@
         if (files.length === 0) {
           return;
         }
+        if (this.images.length + files.length > this.maxCount) {
+          Toast('最多只能上传' + this.maxCount + '张图片！');
+          return;
+        }
         let reader;
         let file;
         let images = this.images;
         for (let i = 0; i < files.length; i++) {
           file = files[i];
-          this.filesArr.push(file)
+          this.filesArr.push(file);
           reader = new FileReader();
           if (file.size > self.maxSize) {
             Toast('图片太大，不允许上传！');
             continue;
-          }
-
-          if (this.$refs.files && this.$refs.files.length >= self.maxCount) {
-            Toast('最多只能上传' + this.maxCount + '张图片！');
-            return;
           }
           reader.onload = (e) => {
             let img = new Image();
@@ -113,9 +112,9 @@
               ctx.drawImage(img, 0, 0, w, h);
               let base64 = canvas.toDataURL('image/png');
               images.push(base64);
-            }
+            };
             img.src = e.target.result;
-          }
+          };
           reader.readAsDataURL(file);
         }
       },
