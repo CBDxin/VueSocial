@@ -53,7 +53,7 @@ const mutations = {
         break;
       }
     }
-    if (flag === 0) {
+    if (!flag&&!data.me) {
       state.chatList.unshift({
         chatWith: {
           avater: data.avater,
@@ -64,7 +64,17 @@ const mutations = {
         content: data.message,
         unread: 1
       });
-      state.unread++;
+        state.unread++;
+    }else if (!flag&&data.me){
+      state.chatList.unshift({
+        chatWith: {
+          avater: data.avater,
+          username: data.from_user,
+          _id: data._id
+        },
+        addTime: data.time,
+        content: data.message,
+      });
     }
   },
   [types.SET_CHATLIST](state, data) {
