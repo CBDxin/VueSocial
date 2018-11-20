@@ -123,7 +123,8 @@
             from_user: this.chatWith,//发送方
             message: this.content,//消息内容
             time: Date.now(),//时间);
-            me: true
+            me: true,
+            avater:'http://47.107.66.252:3001/public/img/avater.jpg'
           });
           socket.emit('chat', data);
           this.content = '';
