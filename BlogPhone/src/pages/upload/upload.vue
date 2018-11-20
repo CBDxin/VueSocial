@@ -100,25 +100,24 @@
             Toast('最多只能上传' + this.maxCount + '张图片！');
             return;
           }
-        }
-
-        reader.onload = (e) => {
-          let img = new Image();
-          img.onload = function () {
-            let canvas = document.createElement('canvas');
-            let ctx = canvas.getContext('2d');
-            let w = img.width;
-            let h = img.height;
-            // 设置 canvas 的宽度和高度
-            canvas.width = w;
-            canvas.height = h;
-            ctx.drawImage(img, 0, 0, w, h);
-            let base64 = canvas.toDataURL('image/png');
-            images.push(base64);
+          reader.onload = (e) => {
+            let img = new Image();
+            img.onload = function () {
+              let canvas = document.createElement('canvas');
+              let ctx = canvas.getContext('2d');
+              let w = img.width;
+              let h = img.height;
+              // 设置 canvas 的宽度和高度
+              canvas.width = w;
+              canvas.height = h;
+              ctx.drawImage(img, 0, 0, w, h);
+              let base64 = canvas.toDataURL('image/png');
+              images.push(base64);
+            }
+            img.src = e.target.result;
           }
-          img.src = e.target.result;
+          reader.readAsDataURL(file);
         }
-        reader.readAsDataURL(file);
       },
       put() {
         Indicator.open('发布中...');
