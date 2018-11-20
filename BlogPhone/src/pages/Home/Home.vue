@@ -11,7 +11,7 @@
       <scroll @change="showupload=true" @refresh="getPyqLists(1)"
               :stop="55" :threshold="70" ref="scroll" class="scroll-wrap pyq-card" :data="PyqList">
         <ul>
-          <li class="pyq" v-for="(list,index) in PyqList">
+          <li class="pyq" :key="Math.random()" v-for="(list,index) in PyqList">
             <div class="del" @click="del(list._id)" v-if="list.writer.username === userInfo.username">&times;</div>
             <div class="avater" @click="goToPindex(list.writer.username,list.writer._id)">
               <img :src="list.writer.avater"/>
