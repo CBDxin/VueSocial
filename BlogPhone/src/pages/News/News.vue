@@ -2,7 +2,7 @@
   <div>
     <myheader :title="'消息'"></myheader>
     <div class="news">
-      <scroll class="scroll-wrap" v-if="userInfo.username">
+      <scroll ref="scroll" class="scroll-wrap" v-if="userInfo.username">
         <ul>
           <li>
             <div class="news-box" @click="enterComList">
@@ -56,6 +56,11 @@
         'cunread',
         'chatList'
       ])
+    },
+    activated(){
+      this.$nextTick(()=>{
+        this.$refs.scroll.refresh();
+      })
     },
     methods: {
       ...mapMutations([
