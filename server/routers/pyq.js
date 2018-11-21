@@ -1,4 +1,5 @@
 let Pyq = require('../models/Pyq');
+let Comment = require('../models/Comment');
 let express = require('express');
 let router = express.Router();
 
