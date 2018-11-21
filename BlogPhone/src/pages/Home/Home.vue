@@ -7,7 +7,7 @@
     </myheader>
     <div class="pyq-lists">
       <div v-if="!showupload" class="upload-tip">下拉刷新</div>
-      <loading v-else title="刷新中..." class="upload"></loading>
+      <loading v-else title="" class="upload"></loading>
       <scroll @change="showupload=true" @refresh="getPyqLists(1)"
               :stop="55" :threshold="70" ref="scroll" class="scroll-wrap pyq-card" :data="PyqList">
         <ul>
@@ -21,7 +21,7 @@
               </div>
               <div class="pyq-content">{{list.content}}</div>
               <div style="width: 100%" v-if="list.pimg.length === 1" class="one-box">
-                <div ref="items" class="one" @click="showimg(list.pimg,0)"
+                <div class="one" @click="showimg(list.pimg,0)"
                      :style="'backgroundImage:url(' + list.pimg[0] +' )'">
                 </div>
               </div>
@@ -74,7 +74,7 @@
       ...mapState([
         'userInfo',
         'cunread',
-        'isReset'
+        'isResize'
       ])
     },
     mounted() {
@@ -95,13 +95,11 @@
       this.getAllData();
     },
     activated() {
-      if (this.isResize){
-          this.initImg();
-          this.$refs.scroll.refresh();
-          this.reset_resize();
-          this.getPyqLists();
-        }
       this.$nextTick(() => {
+        if (this.isResize){
+          this.initImg();
+          this.reset_resize();
+        }
         if (this._getList) {
           if (this.goTop) {
             this.goTop = false;
@@ -114,6 +112,7 @@
           this._getList = false;
           this.getPyqLists();
         }
+        this.$refs.scroll.refresh();
       })
     },
     data() {
@@ -160,7 +159,7 @@
         'set_cmessage',
         'set_cunread',
         'set_chatList',
-        'reset_reszie'
+        'reset_resize'
       ]),
       initImg() {
         let items = this.$refs.items;
@@ -245,7 +244,7 @@
       if (from.path == '/upload' || from.path == '/login' || from.path == '/comment') {
         next(vm => {
           if (from.path == '/upload') {
-            vm.goToPage = true
+            vm.goTop = true
           }
           if (from.path == '/login') {
             vm._getAllData = true
@@ -384,8 +383,8 @@
           .one {
             display: block;
             margin: 5px 0;
-            width: 80%;
-            height: auto;
+            width: 250px;
+            height: 250px;
             background: no-repeat 50%;
             background-size: cover;
           }
