@@ -63,6 +63,7 @@
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click,
+          observeDOM:true,
           bounce: {
             top: true,
             bottom: true,
@@ -85,10 +86,11 @@
           this.scroll.on('scroll', (pos) => {
             if (pos.y > this.threshold) {
               flag = true;
-              this.$emit('change')
             }
             if (flag && pos.y == this.stop) {
-              this.$emit('refresh')
+              this.$emit('change');
+              this.$emit('refresh');
+              flag = false
             }
           })
         }
@@ -112,16 +114,23 @@
         this.scroll && this.scroll.enable()
       },
       refresh() {
-        this.scroll && this.scroll.refresh()
-        this.toBottom && this._toBottom()
+        let y = this.scroll.y;
+        this.scroll && this.scroll.refresh();
+        if (y<0){
+          this.scroll.scrollTo(0, y, 0);
+        }
+        this.toBottom && this._toBottom();
       }
     },
     watch: {
       data() {
-        let _this = this
+        let _this = this;
         this.$nextTick(() => {
           _this.refresh()
-        })
+        });
+        setTimeout(()=>{
+          this.refresh();
+        },21)
 
       }
     }
