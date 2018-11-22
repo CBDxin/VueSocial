@@ -44,6 +44,10 @@
         this.$router.go(-1);
       },
       comment() {
+        if (!this.content){
+          Toast('内容不能为空！');
+          return;
+        }
         this.axios.post('/comment', {
           writer: this.writer,
           from: this.userInfo.username,
