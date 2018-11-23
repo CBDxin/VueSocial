@@ -82,10 +82,6 @@
       enterChat(chatwith, chatwithid) {
         this.clear_chatUnread(chatwith);
         this.$router.push({path: '/chat', query: {chatwith, chatwithid}});
-        this.axios.post('/chat/clearchatunread', {
-          from: this.userInfo._id,
-          to: chatwithid
-        })
       }
     },
     data() {
