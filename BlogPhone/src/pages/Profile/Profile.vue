@@ -14,12 +14,12 @@
               </div>
             </div>
           </router-link>
-          <router-link tag="div" to="/updataname" class="weui-cell weui-cell_access">
+          <div class="weui-cell weui-cell_access">
             <div class="weui-cell__bd">
               <p>名字</p>
             </div>
             <div class="weui-cell__ft">{{userInfo.username}}</div>
-          </router-link>
+          </div>
           <router-link tag="div" to="/updatasign" class="weui-cell weui-cell_access">
             <div class="weui-cell__bd">
               <p>签名</p>
