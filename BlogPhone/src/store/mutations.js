@@ -37,24 +37,28 @@ const mutations = {
     }
   },
   [types.UPDATE_CHATLIST](state, data) {
-    let flag = 0;
-    for (let i = 0; i < state.chatList.length; i++) {
-      if (state.chatList[i].chatWith.username == data.from_user) {
+    let flag = 0;//判断新的聊天是否存在于当前的列表中
+    state.chatList.forEach((item)=>{
+      if (item.chatWith.username == data.from_user) {
         flag = 1;
-        if (!data.me) {
-          state.chatList[i].unread++;
+        if (!data.me) {//判断当前是否在对话框页面中
+          item.unread++;
           state.unread++;
         }
-        state.chatList[i].content = data.message;
-        state.chatList[i].addTime = data.time;
+        //更新
+        item.content = data.message;
+        item.addTime = data.time;
+        //按添加时间排序
         state.chatList.sort((a, b) => {
           return new Date(b.addTime) - new Date(a.addTime)
         });
-        break;
+        //跳出循环
+        return false;
       }
-    }
+    });
+    //是新的并且不在对话框页面
     if (!flag&&!data.me) {
-      console.log(1);
+      //添加到第一条
       state.chatList.unshift({
         chatWith: {
           avater: data.avater,
@@ -66,7 +70,7 @@ const mutations = {
         unread: 1
       });
         state.unread++;
-    }else if (!flag&&data.me){
+    }else if (!flag&&data.me){//新的并且在对话框页面，不需要增加unread
       state.chatList.unshift({
         chatWith: {
           avater: data.avater,
