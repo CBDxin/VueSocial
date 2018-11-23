@@ -43,9 +43,11 @@
     created() {
       this.getDataList();
       this.updateBySocket();
+      this.getUserInfo();
     },
     mounted(){
       this.$refs.scroll._toBottom(1);
+      this.clearUnread();
     },
     data() {
       return {
@@ -53,7 +55,8 @@
         chatWith: this.$route.query.chatwith,
         content: '',
         sendInfo: "发送",
-        dataList: []
+        dataList: [],
+        tUserInfo:''
       }
     },
     computed: {
@@ -70,6 +73,20 @@
       ...mapMutations([
         'update_chatList'
       ]),
+      //获取聊天对象信息
+      getUserInfo() {
+        this.axios.get(`/profile/userInfo?name=${this.chatWith}`).then(({data}) => {
+          if (data) {
+            this.tUserInfo = data;
+          }
+        })
+      },
+      clearUnread(){
+        this.axios.post('/chat/clearchatunread', {
+          from: this.userInfo._id,
+          to: this.tUserInfo._id
+        })
+      },
       getDataList() {
         this.axios.get('/chat/chatwith', {
           params: {
@@ -84,6 +101,7 @@
       },
       goback() {
         this.$router.go(-1);
+        this.clearUnread();
       },
       sendMessage() {
         if (!this.userInfo._id){
@@ -95,13 +113,14 @@
         }
         this.sendInfo = '发送中..';
         this.axios.post('/chat/chatwith', {
-          chatWithId: this.chatWithId,
+          chatWithId: this.tUserInfo._id,
           user_id: this.userInfo._id,
           content: this.content
         }).then((result) => {
           this.sendInfo = '发送';
+          //把自己发送的内容更新到dataList中
           this.dataList.push({
-            user_id: {
+            user_id: {//这个有点乱了，这个是自己的信息
               avater: this.userInfo.avater
             },
             chatWith: {
@@ -110,6 +129,16 @@
             addTime: Date.now(),
             content: this.content
           });
+          //更新聊天用户的列表
+          this.update_chatList({
+            _id: this.tUserInfo._id,
+            from_user: this.chatWith,//与你聊天的用户
+            message: this.content,//消息内容
+            time: Date.now(),//时间);
+            me: true,//判别是不是自己发送的
+            avater:this.tUserInfo.avater
+          });
+          //要发送给对方的数据
           let data = {
             from_user: this.userInfo.username,//发送方
             to_user: this.chatWith,//接收方
@@ -118,31 +147,33 @@
             avater: this.userInfo.avater,
             _id: this.userInfo._id
           };
-          this.update_chatList({
-            _id: this.chatWithId,
-            from_user: this.chatWith,//发送方
-            message: this.content,//消息内容
-            time: Date.now(),//时间);
-            me: true,
-            avater:'http://47.107.66.252:3001/public/img/avater.jpg'
-          });
           socket.emit('chat', data);
           this.content = '';
         })
       },
       updateBySocket() {
-        socket.on('starChat', (data) => {
+        socket.on('receiveMsg', (data) => {
+          //判断一下是不是当前的对话框
           if (data.from_user == this.chatWith) {
+            //把收到的消息保存到聊天记录中
             this.dataList.push({
               chatWith: {
                 _id: this.userInfo._id
               },
-              user_id: {
+              user_id: {//自己的信息
                 avater: data.avater
               },
               addTime: data.addTime,
               content: data.message
-            })
+            });
+            this.update_chatList({
+              _id: this.tUserInfo._id,
+              from_user: this.chatWith,//与你聊天的用户
+              message: data.message,//消息内容
+              time: data.addTime,//时间);
+              me: true,//判别是不是自己当前页面
+              avater:this.tUserInfo.avater
+            });
           }
         })
       }
