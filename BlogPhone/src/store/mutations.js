@@ -4,12 +4,6 @@ const mutations = {
   [types.SET_USERINFO](state, userInfo) {
     state.userInfo = userInfo;
   },
-  [types.SET_RESIZE](state) {
-    state.isResize = true;
-  },
-  [types.RESET_RESIZE](state) {
-    state.isResize = false;
-  },
   [types.SET_IMGDATA](state, imgdata) {
     state.imgdata = imgdata;
   },
@@ -27,6 +21,12 @@ const mutations = {
   [types.SET_CUNREAD](state) {
     state.cunread = state.cmessage.length
     state.unread = state.unread + state.cunread
+  },
+  [types.SET_RESIZE](state) {
+    state.isResize = true;
+  },
+  [types.RESET_RESIZE](state) {
+    state.isResize = false;
   },
   [types.CLEAR_CHATUNREAD](state, data) {
     for (let i = 0; i < state.chatList.length; i++) {
@@ -54,6 +54,7 @@ const mutations = {
       }
     }
     if (!flag&&!data.me) {
+      console.log(1);
       state.chatList.unshift({
         chatWith: {
           avater: data.avater,
