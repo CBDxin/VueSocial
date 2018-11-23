@@ -45,10 +45,10 @@
         socket.removeAllListeners();
         socket.on('receiveComment', () => {
           this.update_cunread();
-          console.log(0)
         });
-        socket.on('starChat', (data) => {
+        socket.on('receiveMsg', (data) => {
           let from_user = data.from_user;
+          //如果当前页面为与from_user的对话框，则交由对话框页面处理
           if (this.$route.query.chatwith == from_user) {
             return;
           }
