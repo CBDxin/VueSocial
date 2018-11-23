@@ -59,7 +59,7 @@
     },
     activated(){
       this.$nextTick(()=>{
-        this.$refs.scroll.refresh();
+        this.$refs.scroll&&this.$refs.scroll.refresh();
       })
     },
     methods: {
