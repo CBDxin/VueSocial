@@ -119,6 +119,10 @@
         }
       },
       put() {
+        if (!this.content&&!this.filesArr.length){
+          Toast('内容不能为空！');
+          return;
+        }
         Indicator.open('发布中...');
         let self = this;
         let content = this.content;
