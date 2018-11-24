@@ -1,5 +1,5 @@
 # VueSocial
-something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 
+something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 前端代码在BlogPhone下，后端代码在server下
 
 ---
 ## 内容
