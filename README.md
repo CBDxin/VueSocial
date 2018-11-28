@@ -1,5 +1,5 @@
 # VueSocial
-something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 前端代码在BlogPhone下，后端代码在server下。如果你觉得这个项目还不错的话，你的star是对我最好的鼓励。
+[VueSocial](http://47.107.66.252:3001/public/dist/#/home) something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 前端代码在BlogPhone下，后端代码在server下。如果你觉得这个项目还不错的话，你的star是对我最好的鼓励。
 
 ---
 ## 内容
@@ -8,11 +8,38 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
 3. [已实现功能](#已实现功能)
 4. [待改进](#待改进)
 5. [安装](#安装)
-6. [项目部分图片](#项目部分图片)
-7. [分析总结](#分析总结)
+6. [分析总结](#分析总结)
 
 ## 预览
 在线demo [VueSocial](http://47.107.66.252:3001/public/dist/#/home)（pc端按了f12后有个小问题，刷新一下就好,resize触发的问题，待改进）
+### 首页
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231148.jpg"/>
+  
+### 登录
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231159.jpg"/>
+  
+### 消息
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231142.jpg"/>
+  
+### 聊天
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231154.jpg"/>
+  
+### 个人信息
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231120.jpg"/>
+  
+### 个人主页
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231131.jpg"/>
+  
+### 分享动态
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231054.jpg"/>
+  
+### 更改头像
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231115.jpg"/>
+  
+### 搜索页面
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231126.jpg"/>
+  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231137.jpg"/>
+
 
 ---
 ## 技术栈
@@ -49,63 +76,235 @@ something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）�
 ## 安装
 分别两个文件目录下安装依赖npm install，在server文件夹下node app.js,在blogPhone下npm run dev，然后打开localhost：8081就可以了
   
----
-## 项目部分图片
-### 首页
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231148.jpg"/>
-  
-### 登录
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231159.jpg"/>
-  
-### 消息
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231142.jpg"/>
-  
-### 聊天
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231154.jpg"/>
-  
-### 个人信息
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231120.jpg"/>
-  
-### 个人主页
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231131.jpg"/>
-  
-### 分享动态
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231054.jpg"/>
-  
-### 更改头像
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231115.jpg"/>
-  
-### 搜索页面
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231126.jpg"/>
-  <img width="350" src="https://github.com/CBDxin/img/blob/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181118231137.jpg"/>
 
 ---
 ## 分析总结
 ### socket.io
+## 引入socket. io
+
+
 **服务端:**
+
 ```
+
   let serve = app.listen(3001);
+
   const io = socketio(serve);
+
   io.on('connection', socket => {
+
     socket.on('login', (username) => {
+
                 console.log(username+'上线了！');
+
             });
+
   }
+
 ```
+
 **客户端:**
+
 在index中引入
+
 ```
-    <script src="http://47.107.66.252:3001/socket.io/socket.io.js"></script>
+<script src="http://47.107.66.252:3001/socket.io/socket.io.js"></script>
+
     <script type="text/javascript">
+
       const socket = io.connect('http://47.107.66.252:3001');
+
     </script>
 ```
-这部分的数据库写得有点乱（很乱。。。），但是socket.io的使用其实很方便，无非就是on和emit
-+ `socket.emit()`：向建立该连接的客户端发送消息
-+ `socket.on()`：监听客户端发送信息
-+ `io.to(socketid).emit()`：向指定客户端发送消息
-+ `socket.broadcast.emit()`：向除去建立该连接的客户端的所有客户端广播
-+ `io.sockets.emit()`：向所有客户端广播
+## 整体思路
+把需要用到的数据存放在vuex中，在app.vue的updateBySocket()函数中整体监听服务端emit的事件，根据路由信息判断数据是要做一般处理还是交给对话框页面进行处理
+
+## 核心代码
+### 服务端（express实现）
+```
+        let serve = app.listen(3001);
+        const io = socketio(serve);
+        io.on('connection', socket => {
+            const socketId = socket.id;
+            //登录时建立一个username到socketId的映射表
+            socket.on('login', (username) => {
+                socketHandler.saveUserSocketId(username, socketId)
+            });
+
+            socket.on('chat',(data) => {
+                Idtoid.findOne({
+                    username: data.to_user
+                }).then((rs) => {
+                //根据用户名在映射表中找到对应的socketId
+                    io.to(rs.socketid).emit('starChat',{
+                        from_user:data.from_user,
+                        message:data.message,
+                        time:data.time,
+                        avater:data.avater,
+                        _id:data._id
+                    })
+                })
+            })
+        })
+```
+### app.vue
+`update_chatList`:更新聊天列表的mutation
+```
+...mapMutations([
+        'update_chatList'
+      ]),
+updateBySocket() {
+        socket.removeAllListeners();
+        socket.on('receiveMsg', (data) => {
+          let from_user = data.from_user;
+          //如果当前页面为与from_user的对话框，则交由对话框页面处理
+          if (this.$route.query.chatwith == from_user) {
+            return;
+          }
+          this.update_chatList(data);
+        })
+      }
+```
+### 对话框页面 chat.vue
+`dataList`：当前对话框的聊天记录
+```
+//发送消息
+      sendMessage() {
+        if (!this.userInfo._id){
+          Toast("请先登录！");
+          return;
+        }
+        if (this.content == '') {
+          return;
+        }
+        this.axios.post('/chat/chatwith', {//向后端传输聊天记录
+          chatWithId: this.tUserInfo._id,
+          user_id: this.userInfo._id,
+          content: this.content
+        }).then((result) => {
+          //把自己发送的内容更新到dataList中
+          this.dataList.push({
+            user_id: {//这个有点乱了，这个是自己的信息
+              avater: this.userInfo.avater
+            },
+            chatWith: {
+              _id: this.chatWithId
+            },
+            addTime: Date.now(),
+            content: this.content
+          });
+          //更新聊天用户的列表
+          this.update_chatList({
+            _id: this.tUserInfo._id,//自己的id
+            from_user: this.chatWith,//与你聊天的用户
+            message: this.content,//消息内容
+            time: Date.now(),//时间);
+            me: true,//判别是不是自己发送的
+            avater:this.tUserInfo.avater
+          });
+          //要发送给对方的数据
+          let data = {
+            from_user: this.userInfo.username,//发送方
+            to_user: this.chatWith,//接收方
+            message: this.content,//消息内容
+            time: Date.now(), //时间);
+            avater: this.userInfo.avater,
+            _id: this.userInfo._id
+          };
+          socket.emit('chat', data);
+          this.content = '';
+        })
+      },
+      updateBySocket() {
+        socket.on('receiveMsg', (data) => {
+          //判断一下是不是当前的对话框
+          if (data.from_user == this.chatWith) {
+            //把收到的消息保存到聊天记录中
+            this.dataList.push({
+              chatWith: {
+                _id: this.userInfo._id
+              },
+              user_id: {//自己的信息
+                avater: data.avater
+              },
+              addTime: data.addTime,
+              content: data.message
+            });
+            this.update_chatList({
+              _id: this.tUserInfo._id,
+              from_user: this.chatWith,//与你聊天的用户
+              message: data.message,//消息内容
+              time: data.addTime,//时间);
+              me: true,//判别是不是自己当前页面
+              avater:this.tUserInfo.avater
+            });
+          }
+        })
+      }
+```
+
+## vuex mutation.js
+```
+[types.UPDATE_CHATLIST](state, data) {
+    let flag = 0;//判断新的聊天是否存在于当前的列表中
+    state.chatList.forEach((item)=>{
+      if (item.chatWith.username == data.from_user) {
+        flag = 1;
+        if (!data.me) {//判断当前是否在对话框页面中
+          item.unread++;
+          state.unread++;
+        }
+        //更新
+        item.content = data.message;
+        item.addTime = data.time;
+        //按添加时间排序
+        state.chatList.sort((a, b) => {
+          return new Date(b.addTime) - new Date(a.addTime)
+        });
+        //跳出循环
+        return false;
+      }
+    });
+    //是新的并且不在对话框页面
+    if (!flag&&!data.me) {
+      //添加到第一条
+      state.chatList.unshift({
+        chatWith: {
+          avater: data.avater,
+          username: data.from_user,
+          _id: data._id
+        },
+        addTime: data.time,
+        content: data.message,
+        unread: 1
+      });
+        state.unread++;
+    }else if (!flag&&data.me){//新的并且在对话框页面，不需要增加unread
+      state.chatList.unshift({
+        chatWith: {
+          avater: data.avater,
+          username: data.from_user,
+          _id: data._id
+        },
+        addTime: data.time,
+        content: data.message,
+      });
+    }
+  }
+```
+
+## 总结
+socket.io的简单使用其实并不难，只要掌握好以下几个函数
+
+`socket.emit()`：向建立该连接的客户端发送消息
+
+`socket.on()`：监听客户端发送信息
+
+`io.to(socketid).emit()`：向指定客户端发送消息
+
+`socket.broadcast.emit()`：向除去建立该连接的客户端的所有客户端广播
+
+`io.sockets.emit()`：向所有客户端广播
 
 ### vue
 总结一些项目遇到的难点
