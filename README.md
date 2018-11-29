@@ -136,7 +136,7 @@
                     username: data.to_user
                 }).then((rs) => {
                 //根据用户名在映射表中找到对应的socketId
-                    io.to(rs.socketid).emit('starChat',{
+                    io.to(rs.socketid).emit('receiveMsg',{
                         from_user:data.from_user,
                         message:data.message,
                         time:data.time,
