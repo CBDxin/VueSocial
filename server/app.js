@@ -78,7 +78,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/social', {useNewUrlParser:true},(err
                 Idtoid.findOne({
                     username: data.to_user
                 }).then((rs) => {
-                    io.to(rs.socketid).emit('starChat',{
+                    io.to(rs.socketid).emit('receiveMsg',{
                         from_user:data.from_user,
                         message:data.message,
                         time:data.time,
