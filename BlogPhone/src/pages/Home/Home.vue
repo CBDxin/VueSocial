@@ -92,7 +92,7 @@
     },
     created() {
       this.getPyqLists();
-      this.getAllData();
+      this.getAllData();//
     },
     activated() {
       this.$nextTick(() => {
