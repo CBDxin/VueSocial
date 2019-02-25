@@ -13,7 +13,7 @@ fastclick.attach(document.body);
 import 'common/css/reset.css';
 import 'weui/dist/style/weui.min.css';
 import 'mint-ui/lib/style.css';
-
+//时间转换
 Vue.filter('chatTime', function (valueTime) {
   if (valueTime) {
     valueTime = new Date(valueTime);
