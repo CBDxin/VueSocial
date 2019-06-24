@@ -1,4 +1,4 @@
-# VueSocial（寻求暑假实习，广东范围，110200453@qq.com）
+# VueSocial
 [VueSocial](http://47.107.66.252:3001/public/dist/#/home) something like QQ、weibo、weixin（仿微博、微信的聊天社交平台）前后端分离的vue+express+socket.io练手项目 前端代码在BlogPhone下，后端代码在server下。如果你觉得这个项目还不错的话，你的star是对我最好的鼓励。
 
 ---
